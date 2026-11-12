@@ -14,7 +14,7 @@
   --ancho: 1180px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }   /* nada se puede arrastrar hacia los lados */
 body {
   margin: 0; background: var(--fondo); color: var(--tinta);
   font: 400 17px/1.6 Inter, "Segoe UI", system-ui, sans-serif;
@@ -30,7 +30,7 @@ p { margin: 0 0 1em; color: var(--suave); }
 code, kbd { font: 600 .85em ui-monospace, Consolas, monospace; background: rgba(255,255,255,.1); border: 1px solid var(--borde); border-radius: 6px; padding: .1em .4em; color: var(--tinta); }
 
 /* cielo con estrellas y manchas de color */
-.cielo { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+.cielo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
   background:
     radial-gradient(900px 600px at 15% 10%, rgba(96, 165, 250, .16), transparent 60%),
     radial-gradient(800px 700px at 85% 30%, rgba(167, 139, 250, .22), transparent 60%),
@@ -115,7 +115,7 @@ code, kbd { font: 600 .85em ui-monospace, Consolas, monospace; background: rgba(
   font: 600 .95rem Inter, sans-serif; cursor: pointer; transition: background .15s, color .15s; }
 .galeria button:hover { color: var(--tinta); background: rgba(255,255,255,.1); }
 .galeria button.activo { background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; border-color: transparent; }
-.captura.ancha { max-width: 1000px; margin: 0 auto; transition: opacity .16s ease, transform .16s ease; }
+.captura.ancha { width: 100%; max-width: min(1000px, 100%); margin: 0 auto; transition: opacity .16s ease, transform .16s ease; }
 .captura.ancha.cambiando { opacity: .2; transform: scale(.985); }
 
 /* plus */
